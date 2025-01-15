@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Victor+Mono:wght@200&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: none;
+  transition: .2s linear;
+}
+
+.movie{
+  background-color: #E8E8E8;
+  padding: 6rem;
+  margin-top: 50px; 
+  gap: 6rem;
+}
+
+.movie, .comment{
+  display: flex;
+}
+
+img{
+  width: 25rem;
+}
+
+.content h1{
+  font-size: 7rem;
+  font-weight: bolder;
+  color: #13131a;
+  text-transform: uppercase;
+}
+
+.content p{
+  text-align: justify;
+  text-transform: none;
+  font-size: 1.6rem;
+  color:  #13131a;
+  margin: 2rem 0 2rem;
+  width: 50rem;
+}
+
+#year{
+  font-size: 1.9rem;
+  font-weight: bold;
+  margin: 1rem 0 1rem;
+}
+
+#director span{
+  font-weight: bold;
+}
+
+hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #13131a;
+  margin: 1em 0;
+}
+
+.movie-options{
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+  justify-content: right;
+}
+
+.edit-movie a{
+  background-color: #13131a;
+  color: #E8E8E8;
+  border-radius: 4px;
+  padding: 8px 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.edit-movie a:hover{
+  background-color: #E8E8E8;
+  color: #13131a;
+}
+
+.delete-movie a:hover{
+  color: #B81C11;
+}
+
+.comment{
+  margin: 65px 0 65px 0;
+  gap: 70px;
+}
+
+.comment-box p{
+  font-size: 18px;
+  text-transform: none;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.comment-box label{
+  display: block;
+  font-size: 15px;
+}
+
+.comment-box input{
+  width: 500px;
+  height: 40px;
+  padding: 10px;
+}
+
+.comment-box textarea{
+  width: 500px;
+  height: 150px;
+  padding: 10px;
+}
+
+.comment-box input, .comment-box textarea{
+  text-transform: none;
+  background-color: #E8E8E8;
+  border-radius: 4px;
+  margin-top: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.comment-button{
+  display: flex;
+  justify-content: right;
+}
+
+.comment-box button {
+  margin-top: 10px;
+  background-color: #13131a;
+  color: #E8E8E8;
+  border-radius: 4px;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+button:hover {
+  background-color: #E8E8E8;
+  color: #13131a;
+}
+
+.comment .virtical-line{
+  border-right: 1px solid gray;
+}
+
+.comment-body{
+  width: 500px;
+}
+
+.comment-body h2{
+  font-size: 18px;
+  text-transform: none;
+}
+
+.comment-body p{
+  margin-top: 6px;
+  font-size: 14px;
+  text-transform: none;
+  text-align: justify;
+}
+
+#comment-user{
+  margin-top: 20px;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.comment-body p span{
+  font-size: 13px;
+  color: gray;
+  font-weight: lighter;
+  margin-left: 3px;
+}
+
+.rating-box{
+  display: block;
+  margin-top: 12px;
+}
+
+.rating-box h3{
+  font-size: 18px;
+  text-transform: none;
+}
+
+.rate {
+  float: left;
+  height: 46px;
+  margin: 8px 0 2px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+.rating-button{
+  display: block;
+}
+
+.rating-button button{
+  background-color: #E8E8E8;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #13131a;
+}
+.rating-button button:hover{
+  color: #66796B;
+  border-bottom: 1px solid #66796B;
+}
+
+.moviedetail-container #login-button{
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 60px;
+}
+
+.moviedetail-container #login-button a{
+  font-size: 20px;
+}
+.moviedetail-container #login-button a:hover{
+  color: #66796B;
+  border-bottom: 1px solid #66796B;
+}
+
+
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 200px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup .title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 26px;
+}
+
+.popup .close {
+  display: flex;
+  transition: all 200ms;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #66796B;
+}
+
+.popup hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #13131a;
+  margin: 10px 0 25px;
+}
+
+.popup p span{
+  font-weight: bolder;
+}
+
+.delete-button{
+  text-align: end;
+}
+
+.delete-button button{
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 4px 15px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.popup button:hover{
+  background: #333;
+  color: #fff;
+}
+
+
+
+

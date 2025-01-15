@@ -1,0 +1,40 @@
+{% extends 'movie_blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="my-collection">
+  <h1>my collection</h1>
+</div>
+
+<section class="movies">
+  <div class="box-container">
+
+    {% for movie in movies %}
+    <div class="box">
+        
+      <div class="image">
+        <a href="{% url 'movie_detail' pk=movie.pk %}">
+
+        {% if movie.poster %}
+          <img src="{{ movie.poster.url }}" alt="{{ movie.title }}"> 
+        {% else %}
+          <img src="{% static 'images/americanpsycho.png' %}" alt="default poster">
+        {% endif %}
+        <span class="border border-top"></span>
+        <span class="border border-right"></span>
+        <span class="border border-bottom"></span>
+        <span class="border border-left"></span>
+        </a>
+      </div>
+
+      <div class="content">
+        <h3><a href="{% url 'movie_detail' pk=movie.pk %}">{{ movie.title }}</a></h3>
+        <div class="director">{{ movie.year }}</div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock content %}

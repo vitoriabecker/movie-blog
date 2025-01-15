@@ -1,0 +1,744 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Victor+Mono:wght@200&display=swap');
+
+:root{
+  --main-color: #d3ad7f;
+  --black: #13131a;
+  --bg: #010103;
+  --border: .1rem solid rgba(255, 255, 255, .3);
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  transition: .2s linear;
+}
+
+html{
+  height: 100%;
+
+  /*margin: 0;
+  display: flex;
+  flex-direction: column;*/
+
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+  width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+  background: var(--bg);
+  border-radius: 5rem;
+}
+
+body{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /*height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;*/
+
+  background: #fff;
+}
+
+section{
+  padding: 2rem 7%;
+}
+
+.header{
+  background: #E8E8E8;
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  justify-content: space-around;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.logo{
+  color: #66796B;
+  font-size: 4.5rem;
+  font-weight: 950;
+  text-transform: lowercase;
+  line-height: 45px;
+  justify-content: left;
+}
+
+.navbar a{
+  margin: 0 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color:#66796B;
+}
+
+.registration a{
+  margin: 0 1rem;
+  font-size: 17px;
+  font-weight: bold;
+  color:#66796B;
+}
+
+.navbar a:hover{
+  color: var(--bg);
+  border-bottom: .1rem solid var(--bg);
+  padding-bottom: .5rem;
+}
+
+.registration{
+  display: flex;
+  align-items: center;
+}
+
+.registration a:hover{
+  color: var(--bg);
+}
+
+#signup {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #E8E8E8;
+  color: #66796B;
+  border: 1px solid #66796B;
+  border-radius: 10px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+#signup:hover{
+  color: #E8E8E8;
+  background: #66796B;
+}
+
+.search-bar {
+  display: flex;
+  margin-left: 260px;
+  align-items: center;
+}
+
+.search-bar input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  background: #E8E8E8;
+  border: 1px solid #66796B;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-left: none;
+  width: 340px;
+  height: 38px;
+}
+
+::placeholder{
+  color: #525559;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.search-bar button {
+  display: flex;
+  padding: 0 10px;
+  width: 50px;
+  height: 38px;
+  background: #66796B;
+  color: #E8E8E8;
+  font-size: 17px;
+  border: 1px solid #66796B;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar button:hover {
+  background: #66796B;
+  color: #010103;
+}
+
+.search-bar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* HOME section start*/
+.home{
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .content{
+  max-width: 60rem;
+}
+
+.home .content h3{
+  font-size: 6rem;
+  text-transform: lowercase;
+  color: var(--bg);
+  padding-top: 10rem;
+}
+
+.home .content p{
+  font-size: 2.3rem;
+  font-weight: normal;
+  text-align: justify;
+  line-height: 1.8;
+  padding: 1rem 0;
+  color: var(--bg);
+}
+
+.about{
+  padding: 0rem 0%;
+  margin-bottom: 14rem;
+}
+
+.about h1{
+  margin-bottom: 30px; 
+  color: #fff;
+  font-size: 50px;
+  font-weight: bolder;
+  font-weight: 900;
+}
+
+.box-container-cd{
+  background: url(../images/cidade-de-deus.webp) no-repeat left; 
+  background-size: 55%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 40px 0;
+  margin: 50px 0 50px 0;
+}
+
+.box-container-cb{
+  background: url(../images/central-do-brasil.webp) no-repeat right;
+  background-size: 55%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 40px 0;
+  margin: 50px 0 50px 0;
+}
+
+.text{
+  font-size: 16px;
+  color: #fff;
+  text-transform: none;
+  line-height: 30px;
+  text-align: justify;
+  margin-right: 15rem;
+  margin-bottom: 20px;
+}
+
+a{
+  font-size: 15px;
+  color: #010103;
+  text-transform: none;
+  font-weight: bold;
+}
+
+.cidade-deus, .central-brasil{
+  width: 55%;
+  background-color: #66796B;
+  padding: 100px;
+}
+
+.cidade-deus{
+  float: right;
+}
+
+.central-brasil{
+  float: left;
+}
+/* HOME section end*/
+
+
+/* MOVIE LIST starts */
+.my-collection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8rem 0 3rem;
+  text-transform: lowercase;
+}
+
+.my-collection h1{
+  color: #010103;
+  align-self: flex-end;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.movies .box-container{
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap:2rem;
+  margin-bottom: 50px;
+}
+
+.movies .box-container .box{
+  text-align: center;
+}
+
+.movies .box-container .box .image{
+  padding: 3rem .1;
+}
+
+.movies .box-container .box .image img{
+  max-width:400px;
+  max-height:265px;
+  width: auto;
+  height: auto;
+}
+
+.movies .box-container .box .content{
+  font-size: 1.4rem;
+  margin: .2rem;
+  padding: 0.5rem;
+}
+
+.movies .box-container .box .content a{
+  color: var(--bg);
+}
+
+.movies .box-container .box .content .director{
+  font-size: 1.3rem;
+  color: var(--bg);
+  font-weight: normal;
+  padding: 0.5rem;
+}
+
+.movies .box {
+  position: relative;
+  padding: 10px;
+}
+
+.movies .image {
+  position: relative;
+  overflow: hidden;
+}
+
+.movies .image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.movies .image:hover img {
+  transform: scale(1.05);
+}
+/* MOVIE LIST end/
+
+
+/* LOGIN LOGOUT starts */
+.background {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url(../images/central-do-brasil.webp);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.login-container, .signup-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.login{
+  width: 450px;
+  background: #E8E8E8;
+  color: #333;
+  border-radius: 5px;
+  padding: 60px 70px 40px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.signup{
+  width: 470px;
+  background: #E8E8E8;
+  color: #333;
+  border-radius: 5px;
+  padding: 38px 70px;
+  align-items: center;
+  justify-content: center;
+}
+
+.login h1{
+  font-size: 22px;
+  text-align: left;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.signup h1{
+  font-size: 22px;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.signup h2{
+  font-size: 16px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: normal;
+}
+
+.login .input-box{
+  width: 100%;
+  height: 50px;
+  margin: 12px 0;
+}
+
+.signup .input-box{
+  width: 100%;
+  margin: 12px 0;
+}
+
+.login .input-box label, .signup .input-box label{
+  font-size: 14px;
+}
+
+.login .input-box input, .signup .input-box input{
+  width: 100%;
+  height: 40px;
+  background: #E8E8E8;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  margin-top: 5px;
+  padding: 10px;
+  color: #333;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.login-input, .signup-input{
+  margin-top: 8px;
+  width: 100%;
+  height: 40px;
+  background: #66796B;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #E8E8E8;
+  font-weight: normal;
+}
+.login-input:hover, .signup-input:hover{
+  color: #0D0D0D;
+  background: #404e44;
+}
+
+.register-link{
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.signin-link{
+  font-size: 14.5px;
+  text-align: right;
+  margin-bottom: 22px;
+}
+
+.register-link p, .signin-link p{
+  color: #333;
+  text-decoration: none;
+  font-weight: 350;
+}
+
+.register-link a, .signin-link a{
+  color: #66796B;
+}
+.register-link p a:hover, .signin-link p a:hover{
+  color: var(--bg);
+  border-bottom: .1rem solid var(--bg);
+  padding-bottom: .5rem;
+}
+/* LOGIN LOGOUT end */
+
+
+/* CREATE/UPDATE MOVIE start */
+.addmovie-container, .updatemovie-container{
+  display: flex;
+  justify-content: center;
+}
+
+.addmovie-container .container, .updatemovie-container .container{
+  display: flex;
+  width: 100rem;
+  justify-content: center;
+}
+
+.addmovie-form, .updatemovie-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.addmovie-form h1, .updatemovie-form h1{
+  color: #66796B;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 6rem 0 3rem;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.addmovie-form .form-split, .updatemovie-form .form-split{
+  display: flex;
+  gap: 3rem;
+}
+
+.addmovie-form .form-left, .addmovie-form .form-right, .updatemovie-form .form-left, .updatemovie-form .form-right{
+  flex: 1;
+}
+
+.addmovie-form .input-box, .updatemovie-form .input-box{
+  margin-bottom: 15px;
+}
+
+.addmovie-form label, .updatemovie-form label{
+  font-size: 15px;
+}
+
+.addmovie-form input, .updatemovie-form input{
+  width: 500px;
+  height: 40px;
+  padding: 10px;
+}
+
+.addmovie-form textarea, .updatemovie-form textarea{
+  width: 500px;
+  height: 260px;
+  padding: 10px;
+}
+
+.addmovie-form input, .addmovie-form textarea, .updatemovie-form input, .updatemovie-form textarea{
+  background-color: #E8E8E8;
+  border-radius: 4px;
+  margin-top: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  text-align: justify;
+}
+
+.addmovie-form #id_poster, .updatemovie-form #id_poster{
+  background: transparent;
+  box-shadow: none;
+}
+
+.addmovie-form .addmovie-button{
+  display: flex;
+  justify-content: right;
+}
+
+.addmovie-form button, .update-button input{
+  padding: 10px 20px;
+  width: 250px;
+  height: 46px;
+  background-color: #66796B;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  text-align: center;
+}
+.addmovie-form button:hover, .updatemovie-button input:hover{
+  background: #404e44;
+}
+
+.form-split a{
+  font-size: 10px;
+  color: #010103;
+  text-transform: none;
+  font-weight: bold;
+}
+
+.updatemovie-buttons{
+  display: flex;
+  justify-content: right;
+  text-align: center;
+  gap: 40px;
+}
+
+.updatemovie-buttons a{
+  margin-top: 20px;
+}
+.updatemovie-buttons a:hover{
+  color: #B81C11;
+}
+/* CREATE/UPDATE MOVIE end */ 
+
+
+/* FOOTER start */
+.wrapper{
+  flex: 1 0 auto;
+  /*flex: 1;*/
+  background-color: #fff;
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: 20px;
+  height: 150px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #0D0D0D;
+  color: white;
+}
+
+.footer .container{
+  width: 100%;
+  text-align: center;
+}
+
+.footer-items{
+  display: grid;
+}
+
+.footer .share{
+  margin-bottom: 10px;
+}
+
+.footer .share a{
+  height: 4rem; 
+  width: 4rem;
+  line-height: 4rem;
+  font-size: 2rem;
+  color: #fff;
+  margin: .3rem;
+  border-radius: 50%;
+}
+
+.footer .share a:hover{
+  background-color: #66796B;
+}
+
+.footer .credit{
+  font-size: 2rem;
+  color: #fff;
+  text-transform: lowercase;
+  font-weight: lighter;
+}
+
+.footer .credit span{
+  color: #66796B;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+/* FOOTER end */
+
+
+
+
+/* media queries */
+@media (max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  .logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+
+  .header a{
+    font-size: 16px;
+  }
+
+  section{
+    padding: 2rem;
+  }
+}
+
+@media (max-width:768px){
+
+  /* gera as 3 linhazinhas de menu qnd diminui a tela */
+  #menu-btn{
+    display: inline-block;
+  }
+
+  .header .navbar{
+    position: absolute;
+    top: 100%; right: -100%;
+    background: #fff;
+    width: 30rem;
+    height: calc(100vh - 9.5rem);
+  }
+
+  .header .navbar.active{
+    right: 0;
+  }
+
+  .header .navbar a{
+    color: var(--black);
+    display: block;
+    margin: 1.5rem;
+    padding: .5rem;
+    font-size: 2rem;
+  }
+
+  .header .search-form{
+    width: 90%;
+    right: 2rem;
+  }
+
+  .home{
+    background-position: left;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .home .content h3{
+    font-size: 4.5rem;
+  }
+
+  .home .content p{
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width:450px){
+
+  html{
+    font-size: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+

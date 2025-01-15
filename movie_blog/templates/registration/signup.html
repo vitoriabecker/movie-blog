@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>movies very cool</title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="signup-container">
+
+    <div class="signup">
+  
+      {% if messages %}
+        {% for massage in messages %}
+          <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{ messages }}</p>
+        {% endfor %}
+      {% endif %}
+  
+      <form action="" method="post" novalidate>
+  
+        <h1>Create an account</h1>
+        <h2>Discover, comment and rate films</h2>
+  
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="input-box">
+        {{ field.label_tag }} 
+        {{ field }}
+        </div>
+        <small class="text-warning">{{ field.errors|striptags }}</small>
+        {% endfor %} <br>
+  
+        <div class="signin-link">
+          <p>Already have an account? <a href="{% url 'login' %}">Sign in</a> </p>
+        </div>
+  
+        <input class="signup-input" type="submit" value="sign up">
+  
+        {% if form.non_field_errors %}
+          {% for error in form.non_field.errors %}
+            <p class="alert alert-danger my-3">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+  
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

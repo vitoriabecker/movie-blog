@@ -1,0 +1,52 @@
+{% extends 'movie_blog/base.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="updatemovie-container">
+    <div class="container">
+
+      <div class="updatemovie-form">
+
+        <h1>Update movie</h1>
+
+        <form action="" method="POST" enctype="multipart/form-data" novalidate>
+          {% csrf_token %}
+
+          <div class="form-split">
+            <div class="form-left">
+              {% for field in form %}
+                {% if field.name != "synopsis" %}
+                  <div class="input-box">
+                    {{ field.label_tag }}
+                    {{ field }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="form-right">
+              {% for field in form %}
+                {% if field.name == "synopsis" %}
+                  <div class="input-box">
+                    {{ field.label_tag }}
+                    {{ field }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="updatemovie-buttons">
+            <div class="update-button">
+              <input type="submit" value="Update">
+            </div>
+            
+            <a href="{% url 'movie_list' %}" class="btn btn-danger">Cancel</a>
+            
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>movies very cool</title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+      <link rel="stylesheet" href="{% static 'css/movie_detail.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+  {% include 'movie_blog/header.html' %}
+  
+  <section class="moviedetail-container">
+
+    <div class="movie">
+
+      <div class="image">
+        <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+      </div>
+
+      <div class="content">
+        <h1>{{ movie.title }}</h1>
+        <p id="year">{{ movie.year }}</p>
+        <p>{{ movie.synopsis |linebreaksbr }}</p>
+        <p id="director">Dirigido por <span>{{movie.director}}</span></p>
+
+        <hr>
+
+        <div class="movie-options">
+          <div class="edit-movie">
+            {% if perms.movie_blog.change_movie %}
+              <a href="{% url 'movie_update' movie.pk %}">Edit</a>
+            {% endif %}
+          </div>
+
+          <div class="delete-movie">
+            {% if perms.movie_blog.delete_movie %}
+              <a class="button" href="#popup1">Delete movie</a>
+            {% endif %}
+          </div>
+
+          <div id="popup1" class="overlay">
+            <div class="popup">
+
+              <div class="title">
+                <h2>Delete movie</h2>
+                <a class="close" href="#">&times;</a>
+              </div>
+
+              <hr>
+
+              <p>Are you sure you want to delete "<span>{{ movie.title }}</span>"?</p>
+            
+              <form method="post" action="{% url 'movie_delete' movie.pk %}">
+                {% csrf_token %}
+                <div class="delete-button">
+                  <button type="submit">Yes, delete</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {% if request.user.is_authenticated %}
+      <div class="rating-box">
+        <h3>Leave a rating!</h3>
+    
+        <form action="{% url 'rate_movie' movie.pk %}" method="post">
+          {% csrf_token %}
+    
+          <div class="rate">
+            {% for star in "54321" %}
+            <input type="radio" id="star{{ star }}" name="rate" value="{{ star }}" 
+              {% if existing_rating and existing_rating.rate|stringformat:"s" == star %}checked{% endif %}
+            />
+    
+            <label for="star{{ star }}">{{ star }} stars</label>
+            {% endfor %}
+          </div>
+        </form> 
+
+        <div class="rating-button">
+          <button type="submit">Avaliar</button>
+        </div>
+        
+      </div>
+      {% endif %}
+    </div>
+
+    {% if request.user.is_authenticated %}
+      <div class="comment">
+
+        <div class="comment-box">
+          <p>Leave a comment!</p>
+            <form method="post" action="{% url 'add_comment_to_movie' movie.pk %}">
+              {% csrf_token %}
+              {{ comment_form.as_p }}
+              <div class="comment-button">
+                <button type="submit">Enviar</button>
+              </div>
+            </form>
+        </div>
+
+        <div class="comment-body">
+          <h2>{{ comments.count }} comments</h2>
+          <hr>
+          {% for comment in comments %}
+            <div class="comments">
+              <p id="comment-user">{{ comment.user }} <span>{{ comment.create_date }}</span></p>
+              {{ comment.text | linebreaks }}
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    {% else %}
+      <p id="login-button">Want to rate and comment? <a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+  </section>
+
+  <!-- Devo criar um html só para o footer? Sim, mas como fica o restante?
+       Tem muitas coisas importante base.html, não sei o que fazer ;-; 
+       Ao mesmo tempo, essa é a única template que precisou fazer isso. -->
+       
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-items">
+        <div class="share">
+          <a href="#" class="fab fa-instagram"></a>
+          <a href="#" class="fab fa-linkedin"></a>
+          <a href="#" class="fab fa-pinterest"></a>
+        </div>
+      
+        <div class="credit">created by <span>vitoria</span></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

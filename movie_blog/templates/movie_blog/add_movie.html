@@ -1,0 +1,50 @@
+{% extends 'movie_blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="addmovie-container">
+
+  <div class="container">
+  
+    <div class="addmovie-form">
+  
+      <h1>New movie</h1>
+      
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-split">
+          <div class="form-left">
+            {% for field in movie_form %}
+              {% if field.name != "synopsis" %}
+              <div class="input-box">
+                {{ field.label_tag }}
+                {{ field }}
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="form-right">
+            {% for field in movie_form %}
+              {% if field.name == "synopsis" %}
+              <div class="input-box">
+                {{ field.label_tag }}
+                {{ field }}
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="addmovie-button">
+          <button type="submit">New movie</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
