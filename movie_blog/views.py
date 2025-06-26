@@ -9,12 +9,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from movie_blog.models import Movie, Comment, Rating
 from django.contrib.auth.models import Group
 
-# uma 'view' eh o lugar que coloco a logica da minha aplicação.
-# ela extrai infos do 'model' que eu criei e entrega elas a um 'template'
 
 def home(request):
   return render(request, 'movie_blog/home.html')
-
 
 
 def user_signup(request):
@@ -149,6 +146,7 @@ def add_comment_to_movie(request, pk):
   else: 
     return redirect('movie_list')
   
+
 def rate_movie(request, pk):
   if not request.user.is_authenticated:
     return redirect('movie_list')
@@ -168,27 +166,5 @@ def rate_movie(request, pk):
       else:
         Rating.objects.create(movie=movie, user=request.user, rate=rate)
       return redirect('movie_detail', pk=pk)
-  
   return render(request, 'movie_detail.html', {'movie':movie, 'existing_rating': existing_rating})
-
-
-
-
-    
-#def rate_movie(request, pk):
-#  if not request.user.is_authenticated:
-#    return redirect('movie_list')  
-#  
-#  if request.method == 'POST':
-#    rate_form = RatingForm(request.POST)
-#
-#    if rate_form.is_valid():
-#      rate = rate_form.cleaned_data['rate']
-#      movie = get_object_or_404(Movie, pk=pk)
-#      rating = Rating(movie=movie, user=request.user, rate=rate)
-#
-#      rating.save()
-#
-#      return redirect('movie_detail', pk=pk)
-
   

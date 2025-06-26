@@ -1,4 +1,3 @@
-# aqui, estou importando do DJANGO a funcao URL e todas as minhas VIEWS
 from django.urls import path
 from movie_blog import views
 from django.conf import settings
@@ -19,7 +18,4 @@ urlpatterns = [
   path('signup/', views.user_signup, name='signup'),
   path('login/', views.user_login, name='login'),
   path('logout/', views.user_logout, name='logout'),
-
-
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

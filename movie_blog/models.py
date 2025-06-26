@@ -2,8 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 
-class Movie(models.Model): # Objeto: define o modelo | models.Model diz que Post eh um modelo de Django
-                          # entao o Django sabe que ele deve ser salvo no banco de dados.
+class Movie(models.Model):
   user = models.CharField(max_length=200, default='anything')                  
   director = models.CharField(max_length=200)
   title = models.CharField(max_length=200)
@@ -27,8 +26,6 @@ class Movie(models.Model): # Objeto: define o modelo | models.Model diz que Post
   
 
 class Comment(models.Model):
-  # relação de muitos-para-um com o model Movie, pois todo comentario sera feito em um filme
-  # e cada filme tem muitos comentarios. 
   user = models.ForeignKey('auth.User', on_delete=models.CASCADE, default=1)
   movie = models.ForeignKey(Movie, related_name='comments', on_delete=models.CASCADE)
   text = models.TextField()

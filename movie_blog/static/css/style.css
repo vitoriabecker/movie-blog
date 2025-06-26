@@ -18,11 +18,6 @@
 
 html{
   height: 100%;
-
-  /*margin: 0;
-  display: flex;
-  flex-direction: column;*/
-
   font-size: 62.5%;
   overflow-x: hidden;
   scroll-padding-top: 9rem;
@@ -46,11 +41,6 @@ body{
   height: 100%;
   display: flex;
   flex-direction: column;
-  /*height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;*/
-
   background: #fff;
 }
 
@@ -596,10 +586,9 @@ a{
 /* CREATE/UPDATE MOVIE end */ 
 
 
-/* FOOTER start */
+/* FOOTER starts */
 .wrapper{
   flex: 1 0 auto;
-  /*flex: 1;*/
   background-color: #fff;
 }
 
@@ -653,7 +642,7 @@ a{
   font-weight: bold;
   text-transform: lowercase;
 }
-/* FOOTER end */
+/* FOOTER ends */
 
 
 
