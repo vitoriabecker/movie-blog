@@ -1,6 +1,6 @@
 ## Movie blog
-A movie blog that allows users to create an account, comment and rate films. Superusers can also add, edit and delete movies directly from the platform.\
-This is my first complete blog project built with Django, and in this project I gained a solid understanding of Django's MTV architecture and improved my full-stack development skills.
+A movie blog that allows users to create an account, comment and rate films. Superusers can also add, edit and delete movies.\
+This is my first complete blog project built with Django. In this project I gained a solid understanding of Django's MTV architecture and improved my full-stack development skills.
 
 ### Built with
 - HTML
